@@ -1,10 +1,15 @@
 const express = require("express");
 
 const { Modle } = require("./Modle/user.modle");
+
 var jwt = require("jsonwebtoken");
+
 const { connection } = require("./db");
+
 require("dotenv").config();
+
 var randomWords = require("random-words");
+
 const cors = require("cors");
 
 const port = process.env.PORT || 8080;
@@ -13,11 +18,13 @@ app.use(cors());
 
 app.use(express.json());
 
+////////////////////////////////////////////////////////////////////////////
+// home
 app.get("/", (req, res) => {
   res.send("MASAI WORD GAME");
 });
 
-
+////////////////////////////////////////////////////////////////////////////
 // post
 app.post("/adduser", async (req, res) => {
   const { name, difficulty } = req.body;
@@ -35,7 +42,7 @@ app.post("/adduser", async (req, res) => {
   }
 });
 
-// /////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
 // get
 app.get("/playzone", async (req, res) => {
   const token = req.headers?.authorization?.split(" ")[1];
@@ -52,8 +59,7 @@ app.get("/playzone", async (req, res) => {
   }
 });
 
-///////////////////////////////////////////////////////////////////////
-
+////////////////////////////////////////////////////////////////////////////
 // getuser
 app.get("/getuser", async (req, res) => {
   try {
@@ -64,6 +70,7 @@ app.get("/getuser", async (req, res) => {
   }
 });
 
+////////////////////////////////////////////////////////////////////////////
 app.listen(port, async () => {
   try {
     await connection;
