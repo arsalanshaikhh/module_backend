@@ -42,6 +42,7 @@ app.post("/adduser", async (req, res) => {
 // console.log("aaa")
     var token = jwt.sign({ Name: name, Diff: difficulty }, "12345");
     res.send({ msg: `Token ${token}` });
+    // res.send("aaaa");
   } catch (err) {
     res.send({ msg: err });
   }
@@ -59,6 +60,7 @@ app.get("/playzone", async (req, res) => {
     // console.log("aaa")
 
     let random = randomWordsCall();
+        // res.send("aaaa");
 
     res.send({ user_name, user_diff, random });
   } catch (err) {
