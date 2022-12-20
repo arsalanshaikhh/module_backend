@@ -17,6 +17,8 @@ app.get("/", (req, res) => {
   res.send("MASAI WORD GAME");
 });
 
+
+// post
 app.post("/adduser", async (req, res) => {
   const { name, difficulty } = req.body;
   try {
@@ -33,6 +35,8 @@ app.post("/adduser", async (req, res) => {
   }
 });
 
+// /////////////////////////////////////////////////////////////////
+// get
 app.get("/playzone", async (req, res) => {
   const token = req.headers?.authorization?.split(" ")[1];
   try {
@@ -48,6 +52,9 @@ app.get("/playzone", async (req, res) => {
   }
 });
 
+///////////////////////////////////////////////////////////////////////
+
+// getuser
 app.get("/getuser", async (req, res) => {
   try {
     const mark_play = await Modle.find({});
