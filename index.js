@@ -39,7 +39,7 @@ app.post("/adduser", async (req, res) => {
       difficulty,
     });
     await new_play.save();
-
+// console.log("aaa")
     var token = jwt.sign({ Name: name, Diff: difficulty }, "12345");
     res.send({ msg: `Token ${token}` });
   } catch (err) {
@@ -56,6 +56,8 @@ app.get("/playzone", async (req, res) => {
 
     let user_name = decoded.Name;
     let user_diff = decoded.Diff;
+    // console.log("aaa")
+
     let random = randomWordsCall();
 
     res.send({ user_name, user_diff, random });
@@ -70,6 +72,8 @@ app.get("/getuser", async (req, res) => {
   try {
     const mark_play = await Modle.find({});
     res.send({ mark_play });
+    // console.log("aaa")
+
   } catch (err) {
     res.send(err);
   }
