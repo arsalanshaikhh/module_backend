@@ -1,3 +1,7 @@
+////////////////////////////////////////////////////////////////////////////
+// MASAI WORD GAME
+////////////////////////////////////////////////////////////////////////////
+
 const express = require("express");
 
 const { Modle } = require("./Modle/user.modle");
@@ -8,7 +12,7 @@ const { connection } = require("./db");
 
 require("dotenv").config();
 
-var randomWords = require("random-words");
+var randomWordsCall = require("random-words");
 
 const cors = require("cors");
 
@@ -51,7 +55,7 @@ app.get("/playzone", async (req, res) => {
 
     let user_name = decoded.Name;
     let user_diff = decoded.Diff;
-    let random = randomWords();
+    let random = randomWordsCall();
 
     res.send({ user_name, user_diff, random });
   } catch (err) {
