@@ -12,7 +12,7 @@ var randomWords = require("random-words");
 
 const cors = require("cors");
 
-const port = process.env.PORT || 8080;
+const port = 8080;
 const app = express();
 app.use(cors());
 
@@ -80,3 +80,5 @@ app.listen(port, async () => {
 
   console.log("Active");
 });
+
+// const port = process.env.PORT || 8080;
